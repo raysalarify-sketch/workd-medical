@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-// 빌드 에러 방지를 위해 사용되는 모든 아이콘을 미리 선언합니다.
+// 빌드 에러 방지를 위해 코드에서 사용되는 모든 아이콘을 미리 선언합니다.
 import { 
   Search, Plus, FileText, CheckCircle, AlertCircle, 
   Clock, ChevronDown, ChevronUp, Trash2, LogOut, 
@@ -10,7 +10,7 @@ import {
 /**
  * [운영매니저 참고] 
  * 1. 이 코드는 현재 Mock Data를 사용 중입니다. 
- * 2. 추후 Supabase 연동 시 이 상단 변수들을 DB 호출 함수로 교체하게 됩니다.
+ * 2. 추후 Supabase 연동 시 이 상단 데이터들을 DB 호출 함수로 교체하게 됩니다.
  */
 
 const THIS_YEAR = 2026;
@@ -22,8 +22,7 @@ const USERS = [
   { empId:"admin", birth:"19800101", name:"홍관리", dept:"HR부",   role:"admin"  },
 ];
 
-// ... (기존 데이터 로직 유지: NHIS_DEPS_BY_EMP, MOCK_SCRAPED_BY_EMP 등)
-// 익현 님이 이전에 사용하시던 INIT_CLAIMS 등의 데이터는 그대로 유지됩니다.
+// ... (기존에 정의하셨던 NHIS_DEPS_BY_EMP, MOCK_SCRAPED_BY_EMP 등 데이터 로직 유지)
 
 const STATUS_COLOR = {
   "심사중":"bg-yellow-100 text-yellow-700",
@@ -44,11 +43,11 @@ const Badge = ({label, color}) => (
 // ── 메인 앱 컴포넌트 ──────────────────────────────────────
 export default function App() {
   const [user, setUser] = useState(null);
-  const [claims, setClaims] = useState([]); // 초기값은 비워두고 로딩 시 채웁니다.
+  const [claims, setClaims] = useState([]); // 초기값은 빈 배열로 시작
 
-  // 로그인 세션 유지 등을 위한 효과 (운영 환경 대비)
+  // 로그인 세션 관리 등을 위한 효과
   useEffect(() => {
-    // 나중에 여기서 Supabase 데이터를 불러오는 로직이 들어갑니다.
+    // 나중에 여기서 Supabase 데이터를 불러오는 로직이 추가됩니다.
   }, []);
 
   if (!user) return <LoginScreen onLogin={setUser} />;
@@ -64,9 +63,7 @@ export default function App() {
   );
 }
 
-// ... (이하 WorkerApp, AdminApp, ApplicationForm 등 상세 컴포넌트 로직)
-// [참고] 이전 대화에서 전달된 상세 UI 컴포넌트들이 이 아래에 포함됩니다.
-
+// ── 로그인 화면 컴포넌트 ──────────────────────────────────
 function LoginScreen({ onLogin }) {
   const [empId, setEmpId] = useState("");
   const [birth, setBirth] = useState("");
@@ -126,3 +123,5 @@ function LoginScreen({ onLogin }) {
     </div>
   );
 }
+
+// ... (WorkerApp, AdminApp 등 기존의 UI 로직 컴포넌트들을 이 아래에 추가하시면 됩니다)
