@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from 'react';
+import { Search, Plus, FileText, CheckCircle, AlertCircle, Clock, ChevronDown, ChevronUp } from 'lucide-react';
 
 const THIS_YEAR = 2026;
 const YEARS = [2024, 2025, 2026];
@@ -992,4 +993,5 @@ function LoginScreen({onLogin}) {
       </div>
     </div>
   );
+
 }
