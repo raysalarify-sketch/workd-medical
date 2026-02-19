@@ -3,7 +3,7 @@ import {
   Search, Plus, FileText, CheckCircle, AlertCircle, 
   Clock, ChevronDown, ChevronUp, Trash2, LogOut, 
   UserPlus, ExternalLink, Download, MessageSquare, 
-  CreditCard, Smartphone, ShieldCheck, Mail
+  CreditCard, Smartphone, ShieldCheck, Mail, X
 } from "lucide-react";
 
 const THIS_YEAR = 2026;
@@ -1000,4 +1000,5 @@ function LoginScreen({onLogin}) {
   );
 
 }
+
 
